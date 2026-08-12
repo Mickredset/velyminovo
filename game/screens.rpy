@@ -351,31 +351,19 @@ style navigation_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 screen main_menu():
-
-    ## Этот тег гарантирует, что любой другой экран с тем же тегом будет
-    ## заменять этот.
     tag menu
 
-    add gui.main_menu_background
+    # Указываем вашу цельную картинку с зелёными кнопками
+    imagemap:
+        idle "images/menu.webp"
+        hover "images/menu.webp"
 
-    ## Эта пустая рамка затеняет главное меню.
-    frame:
-        style "main_menu_frame"
+        hotspot (0, 0, 382, 175) action Start()                       # Начать игру
+        hotspot (0, 203, 382, 175) action ShowMenu("load")            # Загрузить
+        hotspot (0, 407, 382, 169) action ShowMenu("preferences")     # Настройки
+        hotspot (0, 611, 382, 175) action ShowMenu("about")           # Как играть?
+        hotspot (0, 804, 382, 175) action Quit(confirm=not main_menu)  # Выход
 
-    ## Оператор use включает отображение другого экрана в данном. Актуальное
-    ## содержание главного меню находится на экране навигации.
-    use navigation
-
-    if gui.show_name:
-
-        vbox:
-            style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
 
 
 style main_menu_frame is empty
@@ -734,6 +722,7 @@ screen preferences():
     tag menu
 
     use game_menu(_("Настройки"), scroll="viewport"):
+        
 
         vbox:
 
@@ -753,7 +742,7 @@ screen preferences():
                     label _("Пропуск")
                     textbutton _("Всего текста") action Preference("skip", "toggle")
                     textbutton _("После выборов") action Preference("after choices", "toggle")
-                    textbutton _("Переходов") action InvertSelected(Preference("transitions", "toggle"))
+                    textbutton _("Переходов") action InvertSelected(Preference("transitions", "toggle"))  
 
                 ## Дополнительные vbox'ы типа "radio_pref" или "check_pref"
                 ## могут быть добавлены сюда для добавления новых настроек.
