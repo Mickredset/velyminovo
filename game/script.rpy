@@ -31,9 +31,14 @@
         # Прячем экран после завершения загрузки
         renpy.hide_screen("fake_loading_screen")
         renpy.with_statement(fade) # Плавное исчезновение
+init 999 python:
+    config.developer = True
+    config.console = True
+
 init -1 python:
     import math
     import random
+    
 
     class AirHockeyDisplayable(renpy.Displayable):
         def __init__(self):
@@ -185,7 +190,11 @@ init -1 python:
                 self.winner = "player"
             elif self.ai_score >= self.winning_score:
                 self.winner = "ai"
-
+style top_window:
+    # Наследуем базовые отступы интерфейса
+    is window 
+    # Жестко ставим окно наверх (0.0 — самый верх)
+    yalign 0.0 
 screen air_hockey_screen():
     modal True
     
@@ -194,6 +203,10 @@ screen air_hockey_screen():
     
     # Получение динамического счета из игрового процесса
     default hockey_obj = renpy.get_displayable("air_hockey_screen", "hockey")
+
+    # Музыка
+    on "show" action [Stop("music"), Play("music", "audio/fight.mp3")]
+
     
     if hockey_obj:
         # Отображение счета ИИ (Красный, сверху слева)
@@ -216,12 +229,14 @@ define s = Character('Саша', color="#070707")
 define p = Character('Антон', color="#44ff00")
 define d = Character('Денис', color="#b9a828")
 define e = Character('Елена', color="#ffea00")
+define c = Character(_("Баба Нюра"), screen="say_top", color = "#0000ffff")
 
 # Вместо использования оператора image можете просто
 # складывать все ваши файлы изображений в папку images.
 image s normal = "images/sasha.png"
 image e normal = "images/elena.png"
 image d normal = "images/d.png"
+image c normal = "images/c.png"
 # Например, сцену bg room можно вызвать файлом "bg room.png",
 # а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
 screen tea_selection_screen(flavors):
@@ -424,4 +439,223 @@ label start:
     p "Почему?"
 
     d "Сарайка придёт"
+
+    stop music
+
+    play sound "audio/k.ogg"
+
+    s "Кто мяукает!"
+
+    p "Это не кот"
+
+    d "И не кошка"
+
+    e "Быстро в погреб!"
+
+    scene black
+
+    play sound "audio/shagi.ogg"
+
+    p "Тут только я с тобой"
+
+    d "Я тоже тут"
+    
+    d "Где вы?"
+
+    scene pogreb
+
+    s "Это не наш погреб!"
+
+    play sound "audio/dver.mp3"
+
+    $ renpy.pause(6)
+    
+    show c normal at center
+
+    c "Здравствуйте!"
+
+    p "Вы кто?"
+
+    c "Я Анна"
+
+    c "Вы хотели спуститься в свой погреб"
+
+    c "Ваш погреб находиться в другой ветке"
+
+    c "Произошло слияние"
+
+    c "Вы не успели"
+
+    p "И что теперь делать?"
+
+    c "Вам нужно сделать запрос на слияние"
+
+    play sound "audio/k.ogg"
+
+    $ renpy.pause(6)
+
+    p "Что это?"
+
+    c "Выхода из этого погреба нету"
+
+    c "Есть один!"
+
+    c "Иди за мной!"
+
+    menu:
+        "Идти":
+            "Вы пошли"
+            $ strange += 1
+        "Не идти":
+            c "Твоё дело!"
+            $ renpy.quit()
+
+    scene black
+
+    play sound "audio/shagi.ogg"
+
+    $ renpy.pause(6)
+
+    scene homed
+
+    c "Мы вышли из погреба!"
+
+    p "Как мне вернуться домой?"
+
+    play sond "audio/shagi.ogg"
+
+    show saraika
+
+    c "Думаешь я добрая бабшука?"
+
+    play sound "audio/krik.ogg"
+
+    p "Это Сарайка"
+
+    c "С"
+
+    c "А"
+
+    c "Райка"
+
+    c "Сарайка"
+
+    scene horror
+
+    play sound "audio/krik.mp3"
+
+    $ renpy.pause(8)
+
+    stop sound
+
+    stop music
+
+    scene 0
+
+    show c normal
+
+    c "Это не я! Это Сарайка была"
+
+    play music "audio/fon.mp3"
+
+    p "Как отсюда выход найти?"
+
+    c "Надо вызвать лифт"
+
+    p "Лифт в погребе?"
+
+    c "Да прям в погребе"
+
+    python hide:
+        # Открываем файл из папки game
+        with renpy.file("dialog/plan.dialog") as f:
+            # Читаем содержимое и декодируем в UTF-8
+            file_content = f.read().decode("utf-8")
+            
+            # Сохраняем текст в глобальное хранилище store,
+            # чтобы Ren'Py увидел переменную снаружи этого блока
+            store.character_text = file_content.strip()
+
+    c "[character_text]"
+
+
+    hide  screen status
+
+    p "Понятно"
+
+    p "Как вы тут живёте?"
+
+    scene 2
+
+    p "Вот и лифт"
+
+    scene 1
+
+    c "Внучёк! Набери пожалуйста воду из колодца"
+
+    "Вы набрали воду из колодца"
+
+    scene homed2
+
+    c "Спасибо!"
+
+    c "Муравейник получил воду"
+
+    c "Идите в подвал!"
+
+    scene 3
+
+    "Похоже бабушка ушла и заперла вас в погребе"
+
+    stop music
+
+    play sound "audio/horror.mp3"
+
+    c "Что ты сделаешь?"
+
+    c "Скоро тебя есть будем"
+
+    menu:
+        "Идти направо":
+            "Вы пошли"
+
+            show c normal
+
+            c "Похоже ты внучёк будешь пельменями"
+
+            $ main_menu = True
+
+            c "Ну что"
+
+            c "Давай"
+
+            $ renpy.show_screen("load")
+            
+            $ renpy.quit()
+
+        "Идти налево":
+            $ strange += 1
+            "Вы пошли и нашли выход"
+
+    scene 4
+
+    "Вы пошли по тропинке"
+
+    scene home
+
+    show d normal at center
+
+    show s normal at left
+
+    s "Здравствуйте! А где вы так долго были?"
+
+    s "Мы в погребе спрятались от Сарайки"
+    
+    play music "audio/menu.mp3"                 
+
+    p "Я встретил Бабушку Настю"
+
+    p "Она хотела меня съесть"
+
+    s "Так она 2 года назад умерла"           
     return

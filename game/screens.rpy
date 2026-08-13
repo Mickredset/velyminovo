@@ -107,6 +107,29 @@ screen say(who, what):
                 text who id "who"
 
         text what id "what"
+screen say_top(who, what):
+    style_prefix "say"
+
+    window:
+        id "window"
+        xalign 0.5
+        yalign 0.0
+        xsize 1.0
+        
+        yminimum 1.0
+        ymaximum 1.0
+        
+        background "#fffdfdff"
+
+        if who is not None:
+            window:
+                id "namebox"
+                style "namebox"
+                text who id "who"
+
+        text what id "what"
+
+
 
 
     ## Если есть боковое изображение ("голова"), показывает её поверх текста.

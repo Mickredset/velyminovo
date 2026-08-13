@@ -33,3 +33,5 @@ screen fake_loading_screen(duration):
             xalign 0.5
             color "#000000"      # Черный текст
             size 32
+
+# Переменные
