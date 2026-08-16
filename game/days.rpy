@@ -1,7 +1,7 @@
 # days.rpy
 # day2
 label day2:
-    scene black
+    scene 5
 
     "Вы легли спать"
 
@@ -12,3 +12,51 @@ label day2:
     "Сейчас полночь"
 
     "Вы слышите за окном звуки Сарайки"
+
+    show s normal at center
+
+    s "Сарайка пришла!"
+
+    scene
+
+    show homed2 at fullscreen_shake
+
+    stop music
+
+    play music "audio/horror.mp3"
+
+    $ renpy.pause(12)
+
+    "Сарайка придёт"
+
+    scene black
+
+    "Вы захотели поесть солёные огурчики"
+
+    "Вы спустились в погреб"
+
+    stop music
+
+    play sound "audio/shagi.ogg"
+
+    $ renpy.pause(9)
+
+    scene 0 at fullscreen_shake
+
+    "git: Ошибка слияния"
+
+    "Вы в чужом погребе"
+
+    scene black
+
+    "Вы проснулись. Это был сон"
+
+    scene root
+
+    show s norma; at center
+
+    show d normal at left
+
+    s "Сегодня ночью Сарайка не приходила"
+
+    d "Подождите..."

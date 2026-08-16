@@ -121,3 +121,16 @@ style close_button_text:
     color "#ffffff"
     bold True
     size 16
+transform fullscreen_shake:
+    # Центрируем и слегка увеличиваем картинку (1.05 = 5%), 
+    # чтобы при тряске не были видны пустые края экрана
+    anchor (0.5, 0.5) pos (0.5, 0.5) zoom 1.05
+    subpixel True
+    
+    # Цикл тряски (сдвиги влево-вправо, вверх-вниз)
+    linear 0.05 xoffset 10 yoffset -10
+    linear 0.05 xoffset -10 yoffset 10
+    linear 0.05 xoffset 8 yoffset 8
+    linear 0.05 xoffset -8 yoffset -8
+    linear 0.05 xoffset 0 yoffset 0
+    repeat
