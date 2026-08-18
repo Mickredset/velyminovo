@@ -53,10 +53,14 @@ label day2:
 
     scene root
 
-    show s norma; at center
+    show s normal at center
 
     show d normal at left
 
     s "Сегодня ночью Сарайка не приходила"
 
     d "Подождите..."
+
+    d "Сарайка приходила к нам"
+
+    s "Я видел САРАЙКУ!"
