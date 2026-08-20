@@ -225,6 +225,7 @@ init python:
 default t = 0
 default gold = True
 default strange = 0
+default inventory = ["key", "key1"]
 # Определение персонажей игры.
 define s = Character('Саша', color="#070707")
 define p = Character('Антон', color="#44ff00")
