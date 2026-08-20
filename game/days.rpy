@@ -408,6 +408,10 @@ label pogreb2:
 
 # day3
 label day3:
-    scene root
+    scene black
 
     "Вы проснулись"
+
+    scene root
+
+    "Вы съели амлет"
