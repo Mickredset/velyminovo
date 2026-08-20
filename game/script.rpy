@@ -1,4 +1,5 @@
-﻿init 1 python:
+﻿# Floppa AI init 2/3
+init 1 python:
     import random
     import time
 
