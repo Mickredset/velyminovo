@@ -241,6 +241,7 @@ image d normal = "images/d.png"
 image c normal = "images/c.png"
 image n normal = "images/n.png"
 image n fight = "images/n_f.png"
+image stick = "images/stick.png"
 # Например, сцену bg room можно вызвать файлом "bg room.png",
 # а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
 screen tea_selection_screen(flavors):
@@ -684,4 +685,11 @@ label start:
     s "Главное не выходить на улицу"
 
     jump day2
+    return
+
+label res:
+    scene root
+
+    "Вы выбрали чай"
+
     return

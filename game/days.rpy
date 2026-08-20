@@ -228,3 +228,170 @@ label day2:
     play sound "audio/f.ogg"
 
     $ renpy.pause (4)
+
+    n "Пожалуйста! Не ходите!"
+
+    $ t = 24
+
+    call attack
+
+    n "Я хочу вас остановить!"
+
+    call attack
+
+    n "Не надо!"
+
+    n "Вспомните!"
+
+    call res
+
+    scene 11
+
+    p "Бабушка! Тихо!"
+
+    n "Правда?"
+
+    call attack
+
+    p "Бабушка отпустите нас!"
+
+    call attack
+    
+    call attack
+    
+    call attack
+    
+    call attack
+    
+    call attack
+    
+    call attack
+    
+    call attack
+    
+    call attack
+    
+    call attack
+    
+    call attack
+    
+    call attack
+    
+    call attack
+    
+    call attack
+    
+    call attack
+    
+    call attack
+    
+    call attack
+    
+    n """
+    Сарайка будет бежать за вами!
+    Там 3 замка! Первый замок это ключ! Я не знаю где он. Второй замок это кодовый! Третий это электрический замок.
+    Вы можете отключить электричество и использовать магнит!
+    """
+
+    call attack
+
+    call attack
+
+    scene 12
+
+    p "Люди тут ненормальные"
+
+    play sound "audio/f.ogg"
+
+    show stick:
+        xalign -0.5 yalign 0.5 
+        linear 3.0 xalign 0.5
+        pause 3.0
+
+    play sound "audio/f.ogg"    
+
+    show stick:
+        xalign -0.5 yalign 0.5 
+        linear 3.0 xalign 0.5
+        pause 3.0
+
+    s "Это лифт!"
+
+    play sound "audio/f.ogg"    
+
+    show stick:
+        xalign -0.5 yalign 0.5 
+        linear 3.0 xalign 0.5
+        pause 3.0
+
+    hide stick
+
+    jump pogreb2
+
+label pogreb2:
+    scene 13
+
+    d "Мы в погребе!"
+
+    show d normal at center
+
+    show s normal at left
+
+    p "Бабушка сумашедшая"
+
+    n "Стоп!"
+
+    n """
+    Я̷͉͙̥͌̌ в̬̫̺̜̱ͣа̶̶͚̗̟͉̦̙̣̇͌ͮ͐ͥͫ̌с̶̶̫̣̳̞ н̶̸̠͙͔е̨͚͇̘̟͓͈̼ͨ о̵̰̍͌ͤс̨̧̫̥̺̮ͬт̶̧̫͚̗̍͛͋ͦ͐ͅа̲͚͎̝в̩͉̣͈ͯ͊͛̈л̴͇̼̖̪̜̘̤͋ю̷̸ͨͯͣ!͙ͯ͒ͨͫ͊̋̐ Н̵̅̃̋̾͗͒̐е̸̵͕͔͎̙̫̍̎͑͐͆ͅ и̵̫͉̺̯̾̏̉͐ͧд̵̶͕͓̼̒ͫ͆̾͋ͪͩͅи̧̝̳т̅̈ͣ̃е̧̨̹ͫ͂̿!̵̫͕̗͖ͯ 
+    Я̞ в̹̍ͩк̭͍̀л̠ю̳̜ͥ̽ч̖̖̄у̥̯͗͒ с͙̠и̻͂ͤх̅р͍͋о̳ͣ̊н͔̹͗и̒͆з͌̈а̒ц̩͕ӥ̮ͭю͔!͚͗̉ Я̞ͪͫ с̺д͔̰ͮͨел͇̗ͯа̭͓̅ͬю́̄!͓͇
+    """
+
+    $ t = "Недоступно. Выполните: git init"
+
+    s "Я нашёл консоль погреба!"
+
+    s "Все погреба теперь одинаковые"
+
+    s "Pull Request сделали"
+
+    s "Бабка удалили репозиторий погреба. Этот погреб в котором мы сейчас не использует git."
+
+    s "Нужно выйти!"
+
+    s "git init"
+
+    s "pogreb ssh -auto"
+
+    s "Выходим!"
+
+    scene black
+
+    "Вы вышли из погреба"
+
+    s "Наш погреб больше не привязан к общей системе"
+
+    s "Уже вечер. Вы поужинали и пошли в погреб"
+
+    scene 6
+
+    "Вы взяли помидорчики"
+
+    scene 5
+
+    $ t = 6
+
+    "Вы вернулись"
+
+    e "Вы запечатали Сарайку?"
+
+    p "Нет"
+
+    s "Бабушка нас не пропускала"
+
+    d "Бабушка сейчас у нас дома!"
+
+    show d normal at center
+
+    show s normal at left
+
+    

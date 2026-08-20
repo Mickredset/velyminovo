@@ -175,6 +175,6 @@ label attack:
     # Звук удара
     play sound "audio/f.ogg"
     
-    pause 0.5
+    pause 3
     
     return
