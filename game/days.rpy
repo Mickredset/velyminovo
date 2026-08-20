@@ -1,3 +1,4 @@
+# Floppa AI init
 # days.rpy
 # day2
 label day2:
