@@ -230,6 +230,7 @@ define p = Character('Антон', color="#44ff00")
 define d = Character('Денис', color="#b9a828")
 define e = Character('Елена', color="#ffea00")
 define c = Character(_("Баба Нюра"), screen="say_top", color = "#0000ffff")
+define n = Character(_("Зина"), screen="say_top", color = "#6a2e0097")
 
 # Вместо использования оператора image можете просто
 # складывать все ваши файлы изображений в папку images.
@@ -237,6 +238,8 @@ image s normal = "images/sasha.png"
 image e normal = "images/elena.png"
 image d normal = "images/d.png"
 image c normal = "images/c.png"
+image n normal = "images/n.png"
+image n fight = "images/n_f.png"
 # Например, сцену bg room можно вызвать файлом "bg room.png",
 # а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
 screen tea_selection_screen(flavors):

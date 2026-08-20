@@ -134,3 +134,47 @@ transform fullscreen_shake:
     linear 0.05 xoffset -8 yoffset -8
     linear 0.05 xoffset 0 yoffset 0
     repeat
+
+# Экран с полосой HP и кнопкой
+screen attack_screen:
+    # Полоса HP
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xsize 520
+        ysize 90
+        background "#000"
+        padding (10, 10)
+
+        bar:
+            value 100
+            range 100
+            xsize 500
+            ysize 70
+            left_bar Solid("#0f0")
+            right_bar Solid("#300")
+            thumb None
+
+    # Кнопка ПРОДОЛЖИТЬ
+    textbutton "ПРОДОЛЖИТЬ":
+        xalign 0.5
+        yalign 0.75
+        text_size 35
+        text_color "#fff"
+        background "#f80"
+        padding (40, 15)
+        action Return(True)
+
+# Сама атака
+label attack:
+    
+    show screen attack_screen
+    $ result = ui.interact()
+    hide screen attack_screen
+    
+    # Звук удара
+    play sound "audio/f.ogg"
+    
+    pause 0.5
+    
+    return

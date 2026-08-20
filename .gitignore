@@ -29,3 +29,9 @@
 .vscode
 script
 launch.json
+.vercel
+
+# APP
+android.keystore
+bundle.keystore
+android.json
