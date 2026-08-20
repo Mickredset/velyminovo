@@ -197,7 +197,10 @@ label day2:
     menu:
         "Оставить всё как есть":
             $ _main_menu = True
-            call screen preferences
+            $ quick_menu = False
+            $ _main_menu = True
+            $ quick_menu = False
+            $ renpy.full_restart() # Перезапускает игру в главное меню
             "Вы уехали"
         "Пойти дальше":
             $ strange += 1
@@ -221,4 +224,6 @@ label day2:
 
     d "Бабушка бежит за нами!"
 
-    play sound "audio/f.jgg"
+    play sound "audio/f.ogg"
+
+    $ renpy.pause (4)
