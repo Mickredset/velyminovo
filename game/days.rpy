@@ -415,3 +415,51 @@ label day3:
     scene root
 
     "Вы съели амлет"
+
+    show s normal at right
+
+    show d notmal at center
+
+    show e normal at left
+
+    e "Доброе утро"
+
+    d "Надо сегодня Сарайку запечатать"
+
+    p "Как мы запечатаем её?"
+
+    s "Нужно пойти к бабушке в погреб! Там надо будет выполнить в консоли git rm --cached shed.data и потом echo "shed.data" >> .gitignore"
+
+    p "Нужно также сделать коммит и git push"
+
+    s "В нашем погребе тоже надо выполнить команды"
+
+    s "Во всех погребах"
+
+    d "А что будет если просто удалить?"
+
+    s "Если в удалённом репозитории файла shed.data не будет, то будет всё хорошо. Файл будет в локальных файлах погреба"
+
+    s "А если просто везде удалить, то Сарайка востанет из коммита"
+
+    s "Из коммита где Сарайка есть"
+
+    s "Ищё Сарайка есть в разных файлах"
+
+    p "Можно сделать git filter-repo --path shed.data --invert-paths"
+
+    p "А потом git remote add origin и репозиторий."
+
+    s "У меня есть URL репозитория"
+
+    p "Ну тогда: git push origin --force --all"
+
+    s "Я не уверен в возможности сторонних приложений в погребе"
+
+    p """
+    git filter-branch --force --index-filter \
+    "git rm --cached --ignore-unmatch shed.data" \
+    --prune-empty --tag-name-filter cat -- --all
+    """
+
+    s "Отлично! Тогда надо будет удалить все файлы Сарайки"
