@@ -35,3 +35,6 @@ launch.json
 android.keystore
 bundle.keystore
 android.json
+
+# Floppa AI
+.floppaai
